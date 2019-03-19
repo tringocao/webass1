@@ -24,8 +24,11 @@
 			<div id="title">
 				Đăng bài viết mới
 			</div>
-			<div id="info" style="font-size:17px;">
-				<form>
+			<form>
+				<div id="info" style="font-size:17px;">
+					<div>
+						<input type="text" name="title" class="form-control post_title" placeholder="Tiêu đề bài viết">
+					</div>
 					<div class="row">
 						<div class="col-6 col-lg-2">
 							Chọn chủ đề
@@ -40,14 +43,6 @@
 					</div>
 					<div class="row">
 						<div class="col-6 col-lg-2">
-							Tiêu đề
-						</div>
-						<div class="col-6 col-lg-3">
-							<input type="text" name="title" class="col-12 col-lg-12">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-6 col-lg-2">
 							Chọn ảnh hiển thị
 						</div>
 						<div class="col-6 col-lg-3">
@@ -55,14 +50,14 @@
 							<label id="choose_file_label" for="choose_file"><i class="fa fa-folder-open"></i> Chọn tệp</label>
 						</div>
 					</div>
-				</form>
-			</div>
-			
-			<div id="txtEditor"></div>
-			<div id="wrap_button">
-				<button>Đăng</button>
-				<button style="margin-left:7px;">Hủy</button>
-			</div>
+				</div>
+				
+				<div id="txtEditor"></div>
+				<div id="wrap_button">
+					<button type="submit" class="btn btn-success btn-md">Đăng bài viết</button>
+					<button type="button" class="btn btn-md" style="margin-left:7px;">Hủy</button>
+				</div>
+			</form>
 		</div>
 	</body>
 	<script type="text/javascript">

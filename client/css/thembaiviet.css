@@ -4,6 +4,8 @@
 }
 #title {
 	font-size:28px;
+	font-weight:700;
+	color:#9F224E;
 	margin-bottom:20px;
 }
 
@@ -33,4 +35,10 @@
 
 #txtEditor {
 	color:black;
+}
+
+.post_title {
+	font-size:20px;
+	line-height:20px;
+	font-weight:600;
 }
