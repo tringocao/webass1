@@ -138,7 +138,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 } 
 .Editor-editor{ 
     height:300px;
-    padding:1%;  
+    padding:3%;  
   border:1px solid #EEE;
   border-radius:0;
     word-wrap: break-word;
@@ -273,6 +273,10 @@ pre {
 
 .btn-group + .btn-group {
   margin-left: 5px;
+}
+
+.btn-group > a {
+	color:black!important;
 }
 .activeColour ul{
   -webkit-padding-start: 0px;
