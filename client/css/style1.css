@@ -1,0 +1,33 @@
+﻿body{
+    background-image: url('amthuc1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+#container{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+    margin-bottom:auto;
+    /* width: 800px; */
+    background-color: white;
+    width: 500px;
+    /* height: 650px;    */
+}
+#login{ text-align: center; font-family: 'Times New Roman', Times, serif; }
+
+#logo {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+}
+#input{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+#login_label{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#pass_label{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#but_login, #but_signin{ width: 100%; }
+#forgot_pass{ text-align: center; }

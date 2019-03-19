@@ -1,0 +1,22 @@
+﻿body{
+    background-image: url('amthuc1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+#container{
+    margin: auto;
+    /* width: 800px; */
+    background-color: white;
+    width: 600px;
+    height: 650px;   
+}
+#register{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+#first_name_text{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#last_name_text{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#reg_acc{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#sex_text{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }
+#text1{ font-family: 'Times New Roman', Times, serif; font-size: 20px; }

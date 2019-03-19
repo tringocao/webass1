@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a.btn {
+    color: white !important;
+}
+
+.btn:focus,
+.btn:active,
+input:focus,
+input:active,
+select:focus,
+select:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: #fc9807 !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #fc9807 !important;
+    border-color: #fc9807 !important;
+    color: white;
+}
+
+.verticle-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+body {
+    margin-top: 180px;
+}
+.footer {
+    margin-top: 40px;
+}
+@media (max-width: 992px) {
+    body {
+        margin-top: 260px !important;
+    }
+    .footer {
+        margin-top: 20px !important;
+    }
+}
+
+
+/* logo */
+.logo span {
+    font-weight: bold;
+}
+.logo span.badge {
+    background-color: black;
+}
+
+/* ads */
+.ads-wrapper .ads-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #666;
+}
+.ads-wrapper .ads-title span {
+    font-size: 1.2em;
+}
+
+
+/* header */
+.header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+}
+.header .top-wrapper {
+    background-color: #ffba00;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.header .top {
+    display: flex;
+}
+.header .top .logo {
+    flex: 0 0 auto;
+}
+.header .top .logo-wrapper {
+    flex: 0 0 auto;
+}
+.header .top .logo span {
+    font-size: 3em;
+}
+.header .top .search-wrapper {
+    flex: 1 1 auto;
+}
+.header .top .search-wrapper .input-group {
+    width: 50%;
+    margin: auto;
+}
+.header .top .search-wrapper .input-group .input-group-text {
+    background-color: #fc9807;
+    border-color: #fc9807;
+}
+.header .top .user-wrapper {
+    flex: 0 0 auto;
+}
+.header .top .user-wrapper .button-wrapper a {
+    color: black;
+    font-weight: bold;
+}
+.header .top .user-wrapper .button-wrapper i {
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.header .bottom-wrapper {
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.header .bottom-wrapper {
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.header .bottom {
+    position: relative;
+}
+.header .bottom .nav-bar-wrapper .nav-bar {
+    padding-left: 0px;   
+    display: inline-block;
+    margin-bottom: 0px;
+}
+.header .bottom .nav-bar-wrapper .nav-bar .item {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+.header .bottom .nav-bar-wrapper .nav-bar .item a {
+    color: white;
+}
+
+@media (max-width: 992px) {
+    .header .verticle-center {
+        position: relative;
+        top: 0%;
+        transform: none;
+    }
+    .header .top {
+        flex-direction: column;
+    }
+    .header .top > div {
+        margin-top: 10px;
+    }
+    .header .top .search-wrapper .input-group {
+        width: 100%;
+    }
+}
+
+/* footer */
+.footer {
+    width: 100%;
+}
+.footer .top-wrapper {
+    background-color: #ffba00;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer .top-wrapper .top {
+    display: flex;
+}
+.footer .top-wrapper .left {
+    flex: 0 0 auto;
+    border-right: 2px solid black;
+    padding-right: 20px;
+}
+.footer .top-wrapper .left .logo span {
+    font-size: 3em;
+}
+.footer .top-wrapper .right {
+    flex: 1 1 auto;
+    padding-left: 20px;
+}
+.footer .top-wrapper .nav-bar {
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+.footer .top-wrapper .nav-bar .item {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+.footer .top-wrapper .nav-bar .item a {
+    color: black;
+    font-weight: bold;
+}
+.footer .top-wrapper .social-button-wrapper {
+    margin-top: 5px;
+}
+.footer .top-wrapper .social-button-wrapper span, 
+.footer .top-wrapper .social-button-wrapper a {
+    margin-top: 5px;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.footer .top-wrapper .social-button-wrapper a i {
+    font-size: 2em;
+    color: black;
+    position: relative;
+    top: 0.25em;
+}
+.footer .bottom-wrapper {
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
