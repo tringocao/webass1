@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Đăng ký</title>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <script src="../lib/jquery/jquery.min.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../lib/owl-carousel-2/owl.carousel.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../lib/fontawesome/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/style_header.css">    
+        <link rel="stylesheet" href="./css/style_3mien.css">
+    </head>
+    <body>
+		<script>COMMON_TEMPLATE.header();</script>
+
+        <div id="container">
+            <h1 id="register">ĐĂNG KÝ THÀNH VIÊN</h1>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="first_name" class="col-sm-4 control-label" id="first_name_text"> Nhập họ và họ lót:</label>
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="first_name" placeholder="Nguyễn Văn">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="last_name" class="col-sm-4 control-label" id="last_name_text">Nhập tên:</label>
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="last_name" placeholder="A">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-4 control-label" id="last_name_text">Nhập địa chỉ email:</label>
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="email" placeholder="sample@gmail.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pass1" class="col-sm-4 control-label" id="last_name_text">Nhập vào mật khẩu:</label>
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" id="pass1" placeholder="demopassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pass2" class="col-sm-4 control-label" id="last_name_text">Nhập lại mật khẩu:</label>
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" id="pass2" placeholder="demopassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="sex" class="col-sm-12 control-label" id="sex_text">Chọn giới tính:</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="male" value="option1" checked> <span id="text1">Nam</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="female" value="option2" checked> <span id="text1">Nữ</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-primary btn-lg" id="reg_acc">Đăng ký</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+	    <script>COMMON_TEMPLATE.footer();</script>
+
+    </body>
+</html>
