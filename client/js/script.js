@@ -80,15 +80,22 @@ COMMON_TEMPLATE= {
                             <div class="nav-bar-wrapper">
                                 <ul class="nav-bar">
                                     <li class="item">
-                                        <a href="index.html">Deal tổng hợp</a>
+                                        <a href="index.html">Bài viết tổng hợp</a>
                                     </li>
                                     <li class="item">
-                                        <a href="voucher-list.html">Chợ voucher</a>
+										<a href="voucher-list.html">Miền Bắc</a>
                                     </li>
-                                    <li class="item">
-                                        <a href="sell-list.html">Rao vặt</a>
-                                    </li>
-                                </ul>
+									<li class="item">
+										<a href="sell-list.html">Miền Trung</a>
+									</li>
+									<li class="item">
+										<a href="sell-list.html">Miền Nam</a>
+									</li>
+									<li class="item">
+										<a href="sell-list.html">Món ăn</a>
+									</li>
+										</li>
+									</ul>
                             </div>
                             <div class="social-button-wrapper">
                                 <span>Follow us on</span>

@@ -1,0 +1,137 @@
+body {
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+input, textarea, select {
+  outline: 0 !important;
+}
+.visible-desktop {
+  display: none;
+}
+.hidden-desktop {
+  display: block;
+}
+@media (min-width: 768px) {
+  .visible-desktop {
+    display: block !important;
+  }
+  .hidden-desktop {
+    display: none !important;
+  }
+  .body > .row {
+    height: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  #left-sidebar {
+    height: 3rem;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+  }
+  #left-sidebar.open .menu-dropdown {
+    left: 70%;
+    transition: left .2s;
+  }
+  #left-sidebar.open ul {
+    left: 0;
+    transition: left .2s;
+  }
+  .menu-dropdown {
+    position: absolute;
+    top: 20%;
+    left: 0.75rem;
+    transition: left .2s;
+  }
+  #left-sidebar ul {
+    position: absolute;
+    z-index: 1000;
+    left: -70%;
+    top: 0;
+    background: #333;
+    width: 70%;
+    transition: left .2s;
+  }
+}
+.breadcrumb {
+  background: none;
+  padding: 0;
+}
+.breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+  content: ">";
+}
+#left-sidebar ul {
+  height: 100vh;
+}
+.flex-center {
+  display: flex !important;
+  align-items: center;
+}
+.flex-center-center {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.flex-center-between {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+.body {
+  height: 100vh;
+}
+#left-sidebar {
+  background: #333;
+  color: #fff;
+  padding: 0;
+}
+#left-sidebar a {
+  color: #fff;
+}
+#left-sidebar a:hover {
+  text-decoration: none;
+}
+#left-sidebar ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+#left-sidebar li {
+  cursor: pointer;
+}
+#left-sidebar li:hover {
+  background: #000;
+}
+#left-sidebar li.active {
+  background: #000;
+}
+[type=search] {
+  outline-offset: 0 !important;
+  -webkit-appearance: searchfield !important;
+}
+#main {
+  font-size: .9rem;
+}
+.menu-dropdown {
+  font-size: 1.5rem;
+  color: black;
+}
+table a {
+  color: #333;
+}
+table a:hover {
+  color: #333;
+}
+thead {
+  font-size: 0.9rem;
+}
+tbody {
+  font-size: 0.85rem;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: #333 !important;
+  background: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: #fff !important;
+  background: #333 !important;
+}
