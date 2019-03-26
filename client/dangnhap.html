@@ -17,31 +17,87 @@
     </head>
     <body>
         <script>COMMON_TEMPLATE.header();</script>
-        <div class="container" id="logform">    
-                <h1 id="login">ĐĂNG NHẬP</h1>
-                <div id="input">
-                    <div class="form-group">
-                        <label for="login_email" id="login_label">Nhập địa chỉ email:</label>
-                        <input type="email" class="form-control" id="login_email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="login_pass" id="pass_label">Nhập mật khẩu:</label>
-                        <input type="password" class="form-control" id="login_pass" placeholder="demopassword">
-                    </div>
-                    <label>
-                        <input type="checkbox" value="">
-                            Lưu lại tên và mật khẩu
-                    </label>
+        <div class="container" id="logform">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title_login">ĐĂNG NHẬP</h1>
+                    <h1 class="title_login">-----o0o-----</h1>
                 </div>
-                <!-- <input name="Login" value="Đăng nhập" type="submit" class="btn btn-primary btn-block"> -->
-                <div class="row">
-                    <div class="col text-center">
-                        <input name="Login" value="Đăng nhập" type="submit" class="btn btn-primary">
-                    </div>
-                </div>
-                <p class="text-center"><a href="#">Bạn quên mật khẩu?</a></p>
-                <p class="text-center"><a href="register.html">Đăng ký tài khoản</a></p>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <div class="form-group">
+                            <label for="email_input" class="font_text">Nhập địa chỉ email:</label>
+                            <input type="email" class="form-control" id="email_input" aria-describedby="emailHelp" placeholder="Nhập địa chỉ email">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="password_input" class="font_text">Nhập mật khẩu:</label>
+                            <input type="password" class="form-control" id="password_input" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Lưu địa chỉ đăng nhập</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <script>COMMON_TEMPLATE.footer();</script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container" id="logform">    
+        <h1 id="login">ĐĂNG NHẬP</h1>
+        <div id="input">
+            <div class="form-group">
+                <label for="login_email" id="login_label">Nhập địa chỉ email:</label>
+                <input type="email" class="form-control" id="login_email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="login_pass" id="pass_label">Nhập mật khẩu:</label>
+                <input type="password" class="form-control" id="login_pass" placeholder="demopassword">
+            </div>
+            <label>
+                <input type="checkbox" value="">
+                    Lưu lại tên và mật khẩu
+            </label>
+        </div>
+        <!-- <input name="Login" value="Đăng nhập" type="submit" class="btn btn-primary btn-block"> -->
+        <!-- <div class="row">
+            <div class="col text-center">
+                <input name="Login" value="Đăng nhập" type="submit" class="btn btn-primary">
+            </div>
+        </div>
+        <p class="text-center"><a href="#">Bạn quên mật khẩu?</a></p>
+        <p class="text-center"><a href="register.html">Đăng ký tài khoản</a></p>
+    </div>  -->

@@ -16,6 +16,7 @@
     </head>
     <body id="body">
         <script>COMMON_TEMPLATE.header();</script>
+        
         <div class="container" id="form_change_password">
                 <div class="row">
                     <div class="col-12">
@@ -27,10 +28,10 @@
                     <div class="col-8">
                         <h5 id="sub_title">Mời bạn nhập mật khẩu mới: </h5>
                     </div>
-                </div>
+                </div>  <!-- Sub title -->
                 <div class="row" style="margin: auto;">
                     <div class="col-12">
-                        <form>
+                        <!-- <form>
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-4 col-form-label">Nhập mật khẩu mới: </label>
                                 <div class="col-sm-8">
@@ -46,6 +47,19 @@
                             </div>
     
                             <button type="button" class="btn btn-primary btn-lg btn-block">Xác nhận thay đổi mật khẩu</button>
+                        </form> -->
+
+
+                        <form>
+                            <div class="form-group">
+                                <label for="password1" class="font_text">Nhập mật khẩu mới:</label>
+                                <input type="password" class="form-control" id="password1" placeholder="Nhập mật khẩu mới">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="font_text">Nhập lại mật khẩu mới:</label>
+                                <input type="password" class="form-control" id="password2" placeholder="Nhập lại mật khẩu mới">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
     
                     </div>
