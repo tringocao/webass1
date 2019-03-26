@@ -48,9 +48,13 @@ COMMON_TEMPLATE= {
 					<div class="topnav">
 					  <a href="#home" class="active">Logo</a>
 					  <div id="myLinks">
-						<a href="#news">News</a>
-						<a href="#contact">Contact</a>
-						<a href="#about">About</a>
+						<a href="index.html">Bài viết tổng hơp</a>
+						<a href="#contact">Miền Bắc</a>
+						<a href="#about">Miền Trung</a>
+												<a href="#about">Miền Nam</a>
+																		<a href="#about">Món ăn</a>
+
+
 					  </div>
 					  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 						<i class="fa fa-bars"></i>

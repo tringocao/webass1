@@ -163,6 +163,7 @@ body {
 	   background-color: black;
 		padding-top: 10px;
 		padding-bottom: 10px;
+		    display: inline;
 	}
 	.header .mobile-container .topnav {
 	  overflow: hidden;
