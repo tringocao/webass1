@@ -42,7 +42,7 @@ COMMON_TEMPLATE= {
                         <div class="nav-bar-wrapper">
                             <ul class="nav-bar">
                                 <li class="item">
-                                    <a href="index.html">Bài viết tổng hơp tổng hợp</a>
+                                    <a href="index.html">Bài viết tổng hơp</a>
                                 </li>
                                 <li class="item">
                                     <a href="voucher-list.html">Miền Bắc</a>
