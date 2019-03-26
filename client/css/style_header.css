@@ -32,9 +32,9 @@ select:active {
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
-    background-color: #fc9807 !important;
-    border-color: #fc9807 !important;
-    color: white;
+    background-color: #E6CB3C !important;
+     border-color: #E6CB3C !important; 
+    color: #000000;
 }
 
 .verticle-center {
@@ -111,8 +111,8 @@ body {
     margin: auto;
 }
 .header .top .search-wrapper .input-group .input-group-text {
-    background-color: #fc9807;
-    border-color: #fc9807;
+    background-color: #E6CB3C;
+    border-color: #E6CB3C;
 }
 .header .top .user-wrapper {
     flex: 0 0 auto;
