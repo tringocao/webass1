@@ -7,7 +7,9 @@ COMMON_TEMPLATE= {
                         <div class="logo-wrapper">
                             <div class="logo verticle-center">
                                 <span class="badge badge-primary">BK</span>
-                                <span>Travel</span>
+                                <span style="
+    color: #e6cb3c;
+">Travel</span>
                             </div>
                         </div>
                         <div class="search-wrapper">

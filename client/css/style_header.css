@@ -87,7 +87,7 @@ body {
     top: 0;
 }
 .header .top-wrapper {
-    background-color: #ffba00;
+    background-color: #0d941c;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -118,7 +118,7 @@ body {
     flex: 0 0 auto;
 }
 .header .top .user-wrapper .button-wrapper a {
-    color: black;
+    color: #E6CB3C;
     font-weight: bold;
 }
 .header .top .user-wrapper .button-wrapper i {
@@ -175,7 +175,7 @@ body {
     width: 100%;
 }
 .footer .top-wrapper {
-    background-color: #ffba00;
+    background-color: #0d941c;
     padding-top: 20px;
     padding-bottom: 20px;
 }
