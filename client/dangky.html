@@ -17,69 +17,65 @@
     <body>
 		<script>COMMON_TEMPLATE.header();</script>
 
-        <div class="container" id="container">
-            <h1 id="register">ĐĂNG KÝ THÀNH VIÊN</h1>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="first_name" class="col-sm-4 control-label" id="first_name_text"> Nhập họ và họ lót:</label>
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control" id="first_name" placeholder="Nguyễn Văn">
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="register">ĐĂNG KÝ THÀNH VIÊN</h1>
                 </div>
-                <div class="form-group">
-                    <label for="last_name" class="col-sm-4 control-label" id="last_name_text">Nhập tên:</label>
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control" id="last_name" placeholder="A">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="col-sm-4 control-label" id="last_name_text">Nhập địa chỉ email:</label>
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control" id="email" placeholder="sample@gmail.com">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pass1" class="col-sm-4 control-label" id="last_name_text">Nhập vào mật khẩu:</label>
-                    <div class="col-sm-12">
-                        <input type="password" class="form-control" id="pass1" placeholder="demopassword">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pass2" class="col-sm-4 control-label" id="last_name_text">Nhập lại mật khẩu:</label>
-                    <div class="col-sm-12">
-                        <input type="password" class="form-control" id="pass2" placeholder="demopassword">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label for="sex" class="col-sm-12 control-label" id="sex_text">Chọn giới tính:</label>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <form>
+                        <div class="form-group">
+                            <label for="Fname">Nhập họ và họ lót của bạn: </label>
+                            <input type="text" class="form-control" id="Fname" aria-describedby="emailHelp" placeholder="Mai Bá">
                         </div>
-                        <div class="col-sm-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="male" value="option1" checked> <span id="text1">Nam</span>
-                                </label>
-                            </div>
+                        <div class="form-group">
+                            <label for="Lname">Nhập tên của bạn: </label>
+                            <input type="text" class="form-control" id="Lname" aria-describedby="emailHelp" placeholder="Lộc">
                         </div>
-                        <div class="col-sm-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="female" value="option2" checked> <span id="text1">Nữ</span>
-                                </label>
-                            </div>
+                        <div class="form-group">
+                            <label for="phone_number">Nhập số điện thoại:</label>
+                            <input type="text" class="form-control" id="phone_number" aria-describedby="emailHelp" placeholder="0984737098">
+                        </div>
+                        <div class="form-group">
+                            <label for="nickname">Nhập tên người dùng: </label>
+                            <input type="email" class="form-control" id="nickname" aria-describedby="emailHelp" placeholder="maibaloc">
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Nhập email: </label>
+                            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="maibalocmail@yahoo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Nhập mật khẩu: </label>
+                            <input type="password" class="form-control" id="password1" aria-describedby="emailHelp" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Xác nhận lại mật khẩu: </label>
+                            <input type="password" class="form-control" id="password2" aria-describedby="emailHelp" placeholder="Xác nhận lại mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <label for="sex">Giới tính:</label>
+                            <select id="sex" class="form-control">
+                                <option selected>Chọn giới tính</option>
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Bạn có chắc chắn muốn đăng ký</label>
                         </div>
 
-                    </div>
+                        
+
+                        <button type="submit" class="btn btn-primary">Xác nhận đăng ký</button>
+                    </form>                
                 </div>
-                <div class="row">
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-primary btn-lg" id="reg_acc">Đăng ký</button>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
+                <div class="col-sm-2"></div>
+            </div>
+       </div>
 	    <script>COMMON_TEMPLATE.footer();</script>
 
     </body>
