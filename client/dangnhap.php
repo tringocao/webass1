@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -26,14 +26,14 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
-                    <form>
+                    <form method="POST" action="xulydangnhap.php">
                         <div class="form-group">
-                            <label for="username">Nhập email hoặc tên người dùng: </label>
-                            <input type="email" class="form-control" id="username" placeholder="maibaloc">
+                            <label for="username">Nhập tên người dùng: </label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="maibaloc" required>
                         </div>
                         <div class="form-group">
                             <label for="pass">Nhập mật khẩu: </label>
-                            <input type="password" class="form-control" id="pass" placeholder="maibalocpassword">
+                            <input type="password" class="form-control" id="pass" name="pass" placeholder="maibalocpassword" required>
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="remember">

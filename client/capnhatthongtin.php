@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+<?php
+    session_start();
+    // ?username=$username&fullname=$fullname&gender=$gender&birthday=$birthday&phone=$phone
+    $username=$_GET['username'];
+    $fullname=$_GET['fullname'];
+    $gender=$_GET['gender'];
+    $birthday=$_GET['birthday'];
+    $phone=$_GET['phone'];
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Cập nhật thông tin</title>
@@ -29,16 +38,16 @@
                 </div>
                 <div class="row">
                     <div class="col-9">
-                        <p id="username">Mai Bá Lộc</p>
+                        <p id="username"><?php echo $fullname;?></p>
                     </div>
                     <div class="col-3">
                         <a href="#"><img src="./images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
                     </div>
                 </div>
-                <div class="row"><div class="col-12"><p class="u_info">Username: maibaloc</p></div></div>
-                <div class="row"><div class="col-12"><p class="u_info">Giới tính: Nam</p></div></div>
-                <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: 18/11/1983</p></div></div>
-                <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: 0984737098</p></div></div>
+                <div class="row"><div class="col-12"><p class="u_info">Username: <?php echo $username; ?></p></div></div>
+                <div class="row"><div class="col-12"><p class="u_info">Giới tính: <?php echo $gender; ?></p></div></div>
+                <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: <?php echo $birthday; ?></p></div></div>
+                <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: <?php echo $phone; ?></p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info" style="font-size: 18px;">Số bài viết</p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b>20</b></p></div></div>
             </div>
@@ -49,57 +58,73 @@
                     </div>
                 </div>
                 <br/>
-                <form>
-                    <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-3 col-form-label">Username: </label>
-                        <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="maibaloc">
-                        </div>
-                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <form method="POST" action="xulycapnhatthongtin.php">
+                            <div class="form-group row">
+                                <label for="username_update" class="col-sm-3 col-form-label">Username: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" readonly class="form-control-plaintext" id="username_update" name="username_update" value="<?php echo $username;?>">
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label for="first_name" class="col-sm-3 col-form-label">Họ và họ lót: </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="first_name" placeholder="Mai Bá">
-                        </div>
-                    </div>
+                            <div class="form-group row">
+                                <label for="first_name" class="col-sm-3 col-form-label">Họ và họ lót: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Mai Bá" required>
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label for="last_name" class="col-sm-3 col-form-label">Tên người dùng: </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="last_name" placeholder="Lộc">
-                        </div>
-                    </div>
+                            <div class="form-group row">
+                                <label for="last_name" class="col-sm-3 col-form-label">Tên người dùng: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Lộc" required>
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label for="phone" class="col-sm-3 col-form-label">Số điện thoại: </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="phone" placeholder="0984737098">
-                        </div>
-                    </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-sm-3 col-form-label">Số điện thoại: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="0984737098" required>
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-3 col-form-label">Địa chỉ email: </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="email" placeholder="maibalocmail@yahoo.com">
-                        </div>
-                    </div>
+                            <div class="form-group row">
+                                <label for="email_update" class="col-sm-3 col-form-label">Địa chỉ email: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="email_update" name="email_update" placeholder="maibalocmail@yahoo.com" required>
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label for="Birthday" class="col-sm-3 col-form-label">Birthday: </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="Birthday" placeholder="18/11/1983">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12" style="margin:auto;">
-                            <input class="btn btn-primary" type="submit" value="Lưu và hoàn thành">
-                        </div> 
-                    </div>
+                            <div class="form-group row">
+                                <label for="Birthday_update" class="col-sm-3 col-form-label">Birthday: </label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="Birthday_update" name="Birthday_update" placeholder="18/11/1983" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="margin:auto;">
+                                    <input class="btn btn-primary" type="submit" value="Lưu và hoàn thành">
+                                </div> 
+                            </div>
 
-                    
+                            
 
-                </form>
+                        </form>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12" style="border-bottom: solid 5px blue;">
+                        <h4 class="sub_title">ĐỔI MẬT KHẨU</h4>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <input class="btn btn-danger" type="button" onclick="window.location.href='doimatkhau.php?username=<?php echo $username; ?>'" value="Đổi mật khẩu">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

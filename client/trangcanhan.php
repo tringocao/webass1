@@ -1,4 +1,28 @@
-﻿<!DOCTYPE html>
+<?php
+    // Processing here
+    if (isset($_GET['username']))
+        $username = $_GET['username'];
+    else $username = "";
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPass = "";
+    $dbName = "ass2";
+    $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+    mysqli_set_charset($conn, 'UTF8');
+    $sql = "SELECT * FROM dang_ky WHERE Username='$username'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($query);
+    $fname = $row["Ho_va_ho_lot"];
+    $lname = $row["Ten"];
+    $fullname =  $fname . " " . $lname;
+    $gender = $row['Gioi_tinh'];
+    // if ($gender == "Nu") $gender = "Nữ"; // Chỉnh để có thể dùng tiếng việt
+    $birthday = $row['Ngay_sinh'];
+    $phone = $row['So_dien_thoai'];
+    echo "<script type='text/javascript'></script>";
+    mysqli_close($conn);
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -33,16 +57,16 @@
                     </div>
                     <div class="row">
                         <div class="col-9">
-                            <p id="username">Mai Bá Lộc</p>
+                            <p id="username"><?php echo $fullname; ?></p>
                         </div>
                         <div class="col-3">
-                            <a href="#"><img src="images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
+                            <a href="capnhatthongtin.php<?php echo "?username=$username&fullname=$fullname&gender=$gender&birthday=$birthday&phone=$phone"; ?>"><img src="images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
                         </div>
                     </div>
-                    <div class="row"><div class="col-12"><p class="u_info">Username: maibaloc</p></div></div>
-                    <div class="row"><div class="col-12"><p class="u_info">Giới tính: Nam</p></div></div>
-                    <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: 18/11/1983</p></div></div>
-                    <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: 0984737098</p></div></div>
+                    <div class="row"><div class="col-12"><p class="u_info">Username: <?php echo $username ?></p></div></div>
+                    <div class="row"><div class="col-12"><p class="u_info">Giới tính: <?php echo $gender; ?></p></div></div>
+                    <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: <?php echo $birthday;?></p></div></div>
+                    <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: <?php echo $phone; ?></p></div></div>
                     <div class="row"><div class="col-12"><p class="u_info" style="font-size: 18px;">Số bài viết</p></div></div>
                     <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b>20</b></p></div></div>
                 </div>
@@ -62,7 +86,7 @@
                             <div class="row"><div class="col-12"> <h5>Bài viết về món ăn mới nhất</h5> </div></div>
                             <div class="row">
                                 <div class="col-sm-3"><b>Người đăng:</b></div>
-                                <div class="col-sm-3">Mai Bá Lộc</div>
+                                <div class="col-sm-3"><?php echo $fullname; ?></div>
                                 <div class="col-sm-6">2014-26-04 20:30:00</div>
                             </div>
                             <div class="row">
@@ -90,7 +114,7 @@
                             <div class="row"><div class="col-12"> <h5>Bài viết về món ăn mới nhất thứ 2</h5> </div></div>
                             <div class="row">
                                 <div class="col-sm-3"><b>Người đăng:</b></div>
-                                <div class="col-sm-3">Mai Bá Lộc</div>
+                                <div class="col-sm-3"><?php echo $fullname; ?></div>
                                 <div class="col-sm-6">2014-26-04 20:30:00</div>
                             </div>
                             <div class="row">
@@ -119,3 +143,4 @@
         <!-- Container -->
     </body>
 </html>
+
