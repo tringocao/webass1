@@ -1,4 +1,4 @@
-COMMON_TEMPLATE= {
+﻿COMMON_TEMPLATE= {
     header: function(login) {
         var html =  `
             <div class="header">
@@ -14,22 +14,24 @@ COMMON_TEMPLATE= {
                         </div>
                         <div class="search-wrapper">
                             <div class="input-group verticle-center">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Tìm bài viết">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary btn-search" type="button">TÌM KIẾM</button>
-                                </div>
+                                <form action="trangtimkiem.php" method="GET">
+                                    <div class="input-group-prepend" style="display: inline;width: 30px; margin-right: 5px; height: 100%;">
+                                        <span class="input-group-text" style="display: inline; height: 30px;">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Tìm bài viết" name="search" style="display: inline;width: 200px;">
+                                    <div class="input-group-append" style="display: inline;">
+                                        <button class="btn btn-primary btn-search" type="submit" name="submit">TÌM KIẾM</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="user-wrapper">
                             <div class="button-wrapper verticle-center" style="display: ${login ? "none" : "inline-block"}">
-                                <a href="login.html">Đăng nhập</a>
+                                <a href="dangnhap.html">Đăng nhập</a>
                                 <span> | </span>
-                                <a href="signup.html">Đăng ký</a>
+                                <a href="dangky.html">Đăng ký</a>
                             </div>
                             <div class="button-wrapper verticle-center" style="display: ${login ? "inline-block" : "none"}">
                                 <a href="user-info.html">
@@ -48,11 +50,11 @@ COMMON_TEMPLATE= {
 					<div class="topnav">
 					  <a href="#home" class="active">Logo</a>
 					  <div id="myLinks">
-						<a href="index.html">Bài viết tổng hơp</a>
-						<a href="#contact">Miền Bắc</a>
-						<a href="#about">Miền Trung</a>
-												<a href="#about">Miền Nam</a>
-																		<a href="#about">Món ăn</a>
+						<a href="index.php">Trang chủ</a>
+						<a href="mienbac.php">Miền Bắc</a>
+						<a href="mientrung.php">Miền Trung</a>
+												<a href="miennam.php">Miền Nam</a>
+																		<a href="monantonghop.php">Món ăn</a>
 
 
 					  </div>
@@ -81,19 +83,19 @@ COMMON_TEMPLATE= {
                         <div class="nav-bar-wrapper">
                             <ul class="nav-bar">
                                 <li class="item">
-                                    <a href="index.html">Bài viết tổng hơp</a>
+                                    <a href="index.php">Trang chủ</a>
                                 </li>
                                 <li class="item">
-                                    <a href="voucher-list.html">Miền Bắc</a>
+                                    <a href="mienbac.php">Miền Bắc</a>
                                 </li>
                                 <li class="item">
-                                    <a href="sell-list.html">Miền Trung</a>
+                                    <a href="mientrung.php">Miền Trung</a>
                                 </li>
 								<li class="item">
-                                    <a href="sell-list.html">Miền Nam</a>
+                                    <a href="miennam.php">Miền Nam</a>
                                 </li>
 								<li class="item">
-                                    <a href="sell-list.html">Món ăn</a>
+                                    <a href="monantonghop.php">Món ăn</a>
                                 </li>
                             </ul>
                         </div>
@@ -121,19 +123,19 @@ COMMON_TEMPLATE= {
                             <div class="nav-bar-wrapper">
                                 <ul class="nav-bar">
                                     <li class="item">
-                                        <a href="index.html">Bài viết tổng hợp</a>
+                                        <a href="mienbac.php">Trang chủ</a>
                                     </li>
                                     <li class="item">
-										<a href="voucher-list.html">Miền Bắc</a>
+										<a href="mienbac.php">Miền Bắc</a>
                                     </li>
 									<li class="item">
-										<a href="sell-list.html">Miền Trung</a>
+										<a href="mientrung.php">Miền Trung</a>
 									</li>
 									<li class="item">
-										<a href="sell-list.html">Miền Nam</a>
+										<a href="miennam.php">Miền Nam</a>
 									</li>
 									<li class="item">
-										<a href="sell-list.html">Món ăn</a>
+										<a href="monantonghop.php">Món ăn</a>
 									</li>
 										</li>
 									</ul>
@@ -201,7 +203,7 @@ COMMON_TEMPLATE= {
 };
 
 $(document).on("click",  ".btn-search", function() {
-    location.href = "search-result.html"
+    location.href = "trangtimkiem.html"
 });
 
 
