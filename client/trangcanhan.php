@@ -19,8 +19,6 @@
     // if ($gender == "Nu") $gender = "Nữ"; // Chỉnh để có thể dùng tiếng việt
     $birthday = $row['Ngay_sinh'];
     $phone = $row['So_dien_thoai'];
-    echo "<script type='text/javascript'></script>";
-    mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,66 +70,94 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row">
-                        <div class="col-sm-9"><p class="sub_title" style="border-bottom: 2px solid blue;">BÀI VIẾT MỚI NHẤT</p></div>
+                        <div class="col-sm-6"><p class="sub_title" style="border-bottom: 2px solid blue;">BÀI VIẾT MỚI NHẤT</p></div>
                         <div class="col-sm-3">
-                            <button type="button" class="btn btn-primary">Tạo bài viết</button>
+                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='taobaiviet.php?username=<?php echo $username; ?>'" >Tạo bài viết</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-danger btn-block" onclick="window.location.href='dangxuat.php'">Đăng xuất</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <!-- Bài viết người dùng -->
-                        <div class="col-sm-4">
-                            <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row"><div class="col-12"> <h5>Bài viết về món ăn mới nhất</h5> </div></div>
-                            <div class="row">
-                                <div class="col-sm-3"><b>Người đăng:</b></div>
-                                <div class="col-sm-3"><?php echo $fullname; ?></div>
-                                <div class="col-sm-6">2014-26-04 20:30:00</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                        Bát bún riêu ngon có sự góp mặt của bún trắng, gạch cua nâu hồng, cà chua đỏ, hành xanh, chút mắm tôm cho dậy mùi, hành phi thơm, cầu kỳ hơn có thể thêm đậu rán vàng, miếng giò tai rồi ăn kèm với các thức rau sống như kinh giới, xà lách, rau mùi.
+                    <?php
+                        $sql = "SELECT * FROM baiviet WHERE Username='$username' ORDER BY ID DESC LIMIT 2";
+                        $sql_query = mysqli_query($conn, $sql);
+                        $num_row = mysqli_num_rows($sql_query);
+                        if ($num_row > 0){
+                            $row1 = mysqli_fetch_assoc($sql_query);
+                            $ngaydang = $row1["ngaydang"];
+                            // $demo = "dsfkfslkkslfkjsfdkjfdsjlfdslfdslkdsfkjfdslkdsflkfksdlfsdkjkjfdslk";
+                            // $substring = substr($demo, 0, 10);
+                            $noidung = "";
+                            if (strlen($row1['noidung']) <= 350){ $noidung = $row1['noidung'] . "..."; }
+                            else{
+                                $noidung = substr($row1['noidung'], 0, 350) . "...";
+                            }
+                            // echo $noidung;
+                            echo '
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row"><div class="col-12"> <h5>' .$row1['title'].'</h5> </div></div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Người đăng: </b></div>
+                                            <div class="col-3">'. $fullname . '</div>
+                                            <div class="col-6">' . $row1["ngaydang"] . '</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">'. $noidung .'</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                            ';
+                        }
+                        if ($num_row >1){
+                            $row2 = mysqli_fetch_assoc($sql_query);
+                            $ngaydang = $row2["ngaydang"];
+                            $noidung = "";
+                            if (strlen($row2['noidung']) <= 350){ $noidung = $row2['noidung'] . "..."; }
+                            else{
+                                $noidung = substr($row2['noidung'], 0, 350) . "...";
+                            }
+                            echo '
+                                <br/>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row"><div class="col-12"> <h5>' .$row2['title'].'</h5> </div></div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Người đăng: </b></div>
+                                            <div class="col-3">'. $fullname . '</div>
+                                            <div class="col-6">' . $row2["ngaydang"] . '</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">'. $noidung .'</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            ';
+                        }
+                    ?>
 
-                    <div class="row">
-                            <!-- Bài viết người dùng -->
-                        <div class="col-sm-4">
-                            <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row"><div class="col-12"> <h5>Bài viết về món ăn mới nhất thứ 2</h5> </div></div>
-                            <div class="row">
-                                <div class="col-sm-3"><b>Người đăng:</b></div>
-                                <div class="col-sm-3"><?php echo $fullname; ?></div>
-                                <div class="col-sm-6">2014-26-04 20:30:00</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                        Bát bún riêu ngon có sự góp mặt của bún trắng, gạch cua nâu hồng, cà chua đỏ, hành xanh, chút mắm tôm cho dậy mùi, hành phi thơm, cầu kỳ hơn có thể thêm đậu rán vàng, miếng giò tai rồi ăn kèm với các thức rau sống như kinh giới, xà lách, rau mùi.
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
-                                </div>
-                                <div class="col-4">
-                                    <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
-                               </div>
-                            </div>
-                        </div>
-                    </div>
                     
                 </div>
             </div>
@@ -144,3 +170,6 @@
     </body>
 </html>
 
+<?php
+    mysqli_close($conn);
+?>

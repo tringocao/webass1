@@ -19,15 +19,21 @@
             $row = mysqli_fetch_assoc($query);
             $num_of_row = mysqli_num_rows($query);
             if ($num_of_row > 0){
-                echo "Tao có vô đây";
                 $_SESSION['username'] = $username;
-
                 mysqli_close($conn);
                 header("Location: trangcanhan.php?username=$username");
             }
             else{
                 mysqli_close($conn);
-                header("Location: dangnhap.php");
+                echo '
+                <html>
+                    <br/><br/>
+                    <p style="font-size: 30px; font-style: italic; font-weight: bold;">
+                        Tên đăng nhập hoặc mật khẩu không đúng click vào <a style="font-style: italic; font-weight: bold;" href="dangnhap.php">Link sau đây</a> để đăng nhập lại
+                    </p>
+                </html>
+                ';
+                // header("Location: dangnhap.php");
             }
         }
         
