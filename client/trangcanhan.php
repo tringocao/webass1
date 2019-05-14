@@ -111,6 +111,9 @@
                                 $noidung = substr($row1['noidung'], 0, 350) . "...";
                             }
                             // echo $noidung;
+
+
+
                             echo '
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -121,14 +124,19 @@
                                         <div class="row">
                                             <div class="col-3"><b>Người đăng: </b></div>
                                             <div class="col-3">'. $fullname . '</div>
-                                            <div class="col-6">' . $row1["ngaydang"] . '</div>
+                                            <div class="col-6">' 
+                                            . strval(date('d/m/Y - H:i:s', strtotime($row1["ngaydang"])))
+                                            . '</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">'. $noidung .'</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-3">
-                                                <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href=\'noidungbaiviet.php?id='
+                                                . $row1['ID']
+                                                .
+                                                '\'">Xem thêm</button>
                                             </div>
                                             <div class="col-4">
                                                 <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>

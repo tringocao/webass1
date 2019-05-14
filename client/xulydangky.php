@@ -39,7 +39,6 @@
             $sql_add_to_dangky="INSERT INTO dang_ky(Username, Ho_va_ho_lot, Ten, Mat_khau, So_dien_thoai, Email, Gioi_tinh, Ngay_sinh, Avatar) VALUES ('$nickname','$firstname','$lastname','$password','$phone_number','$Email','$sex', '$date', '$image')";
             $query_add_to_dangky = mysqli_query($conn, $sql_add_to_dangky);
 
-            echo $sql_add_to_dangky;
             // Thêm vào bảng đăng nhập
             // $sql_add_to_dangnhap="INSERT INTO dang_nhap (Username, Password, Email) VALUES ('$nickname', '$password1', '$Email')";
             // $query_add_to_dangnhap = mysqli_query($conn, $sql_add_to_dangnhap);
