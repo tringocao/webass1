@@ -4,9 +4,10 @@
     $phone_number = $_POST['phone_number'];
     $nickname = $_POST['nickname'];
     $Email = $_POST['Email'];
-    $password = base64_encode($_POST['password']); // Ma hoa luu vao CSDL
+    $password = md5($_POST['password']); // Ma hoa luu vao CSDL
     $sex = $_POST['sex'];
     $date = $_POST['date'];
+    $image = ($sex == "Nam")?"images/avatar_M.jpg":"images/avatar_F.jpg";
     ob_start();
     session_start();
     // Connect to Database
@@ -36,7 +37,7 @@
         else{
             // Thêm vào bảng đăng ký
             
-            $sql_add_to_dangky="INSERT INTO dang_ky(Username, Ho_va_ho_lot, Ten, Mat_khau, So_dien_thoai, Email, Gioi_tinh) VALUES ('$nickname','$firstname','$lastname','$password','$phone_number','$Email','$sex')";
+            $sql_add_to_dangky="INSERT INTO dang_ky(Username, Ho_va_ho_lot, Ten, Mat_khau, So_dien_thoai, Email, Gioi_tinh, Ngay_sinh, Avatar) VALUES ('$nickname','$firstname','$lastname','$password','$phone_number','$Email','$sex', '$date', '$image')";
             $query_add_to_dangky = mysqli_query($conn, $sql_add_to_dangky);
             // Thêm vào bảng đăng nhập
             // $sql_add_to_dangnhap="INSERT INTO dang_nhap (Username, Password, Email) VALUES ('$nickname', '$password1', '$Email')";
@@ -48,3 +49,9 @@
         }
     }
 ?>
+<html>
+    <br/><br/>
+    <p style="font-size: 30px; font-style: italic; font-weight: bold;">
+        Đăng ký tài khoản thành công, click vào <a style="font-style: italic; font-weight: bold;" href="dangnhap.php">Link sau đây</a> để đăng nhập
+    </p>
+</html>

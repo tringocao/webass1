@@ -1,6 +1,6 @@
 <?php
     $username = $_POST['username'];
-    $password = base64_encode($_POST['pass']);
+    $password = md5($_POST['pass']);
     ob_start();
     session_start();
     // Connect to Database

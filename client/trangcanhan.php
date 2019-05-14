@@ -16,6 +16,7 @@
     $lname = $row["Ten"];
     $fullname =  $fname . " " . $lname;
     $gender = $row['Gioi_tinh'];
+    $image = $row['Avatar'];
     // if ($gender == "Nu") $gender = "Nữ"; // Chỉnh để có thể dùng tiếng việt
     $birthday = $row['Ngay_sinh'];
     $phone = $row['So_dien_thoai'];
@@ -47,11 +48,28 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="row" style="margin:auto;">
-                        <a href="images/avatar.jpg" style="margin:auto;"><img src="images/avatar.jpg" alt="myavatar" width="150" height="150" class="rounded-corners" style="margin:auto;"></a>
+                        <a href="<?php echo $image; ?>" style="margin:auto;"><img src="<?php echo $image; ?>" alt="myavatar" width="150" height="150" class="rounded-corners" style="margin:auto;"></a>
                     </div>
                     <br>
                     <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary">Cập nhật Avatar</button>
+                        <!-- <button type="button" class="btn btn-primary">Cập nhật Avatar</button> -->
+                        <div class="col-12" >
+                            <form method="POST" action="doiavatar.php?username=<?php echo $username; ?>" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="file" id="avatar_img" name="avatar_img" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <!-- <button type="submit" class="btn btn-primary btn-block">Cập nhật Avatar</button> -->
+                                        <input type="submit" class="btn btn-primary btn-block" value="Cập nhật avatar"/>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-9">

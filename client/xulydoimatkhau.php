@@ -16,9 +16,9 @@
         $sql = "SELECT Mat_khau FROM dang_ky WHERE Username='$username'";
         $sql_query = mysqli_query($conn, $sql);
         $sql_fetch = mysqli_fetch_assoc($sql_query);
-        $pass = base64_decode($sql_fetch['Mat_khau']);
-        if ($pass == $old_password && $new_password1 == $new_password2){
-            $new_password1 = base64_encode($new_password1);
+        $pass = $sql_fetch['Mat_khau'];
+        if ($pass == md5($old_password) && $new_password1 == $new_password2){
+            $new_password1 = md5($new_password1);
             $sql_change_pass = "UPDATE dang_ky SET Mat_khau='$new_password1' WHERE Username='$username'";
             $sql_chang_pass_query = mysqli_query($conn, $sql_change_pass);
             mysqli_close($conn);
