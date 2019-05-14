@@ -55,6 +55,10 @@
     margin-top: 10px;
 }
 
+.maunut, .maunut:hover {
+    color: white;
+}
+
 @media only screen and (max-width: 1024px) {
 
 }
@@ -74,9 +78,6 @@
 }
 
 @media only screen and (max-width: 320px) {
-    /*.container {
-        margin-top: -12px;
-    }*/
     .card1 {
         height: 550px;
     }

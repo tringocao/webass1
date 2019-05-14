@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+<?php
+    $username = $_GET['username'];
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -38,14 +41,18 @@
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
                     <!-- Type your code here -->
-                    <form>
+                    <form method="POST" action="xulydoimatkhau.php?username=<?php echo $username; ?>">
+                        <div class="form-group">
+                            <label for="password_old">Nhập mật khẩu cũ: </label>
+                            <input type="password" class="form-control" id="password_old" name="password_old" placeholder="maibalocpassword">
+                        </div>
                         <div class="form-group">
                             <label for="password1">Nhập mật khẩu mới: </label>
-                            <input type="password" class="form-control" id="password1" placeholder="maibalocpassword">
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="maibalocpassword">
                         </div>
                         <div class="form-group">
                             <label for="password2">Nhập lại mật khẩu mới: </label>
-                            <input type="password" class="form-control" id="password2" placeholder="maibalocpassword">
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="maibalocpassword">
                         </div>
                         <button type="submit" class="btn btn-primary">Xác nhận đổi mật khẩu</button>
                     </form>

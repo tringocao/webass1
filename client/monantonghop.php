@@ -1,29 +1,3 @@
-<?php 
-  session_start();
-  $_SESSION['username']= "abcjkl";
-  if (isset($_POST['submit'])) {
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "assignment";
-      $conn = new mysqli($servername, $username, $password, $dbname);
-
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-      $id = 13;
-      $content = $_POST["content"];
-      $userid = $_SESSION['username'];
-      $timestamp = date("Y-m-d h:i:s",time());
-      $postid = 1;
-      $sql = "INSERT INTO comment (id, content, timestamp, userid, postid) VALUES ('$id', '$content', '$timestamp', '$userid', '$postid')";
-      if (mysqli_query($conn, $sql)) {
-          echo "Update success";
-      } else {
-          echo "Error updating record: " . mysqli_error($conn);
-      }
-  }
-?>
 <!DOCTYPE html>
 <html>
   <head>
