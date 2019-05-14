@@ -1,3 +1,29 @@
+<?php 
+	session_start();
+	$_SESSION['username']= "abcjkl";
+	if (isset($_POST['submit'])) {
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "assignment";
+		$conn = new mysqli($servername, $username, $password, $dbname);
+
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		$id = 199;
+		$title = $_POST["title"];
+		$nguoidang = $_SESSION['username'];
+		$ngaydang = date("Y-m-d h:i:s",time());
+		$noidung = $_POST["content"];
+		$sql = "INSERT INTO baiviet (ID, title, nguoidang, ngaydang, noidung, hinhanh) VALUES ('$id', '$title', '$nguoidang', '$ngaydang', '$noidung', 'test.jpg')";
+		if (mysqli_query($conn, $sql)) {
+		    echo "Add success";
+		} else {
+		    echo "Error Adding record: " . mysqli_error($conn);
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -24,7 +50,8 @@
 			<div id="title">
 				Đăng bài viết mới
 			</div>
-			<form>
+			<form action="thembaiviet.php" method="POST">
+				<textarea id="content" style="display:none;" name="content"> </textarea> 
 				<div id="info" style="font-size:17px;">
 					<div>
 						<input type="text" name="title" class="form-control post_title" placeholder="Tiêu đề bài viết">
@@ -54,7 +81,7 @@
 				
 				<div id="txtEditor"></div>
 				<div id="wrap_button">
-					<button type="submit" class="btn btn-success btn-md">Đăng bài viết</button>
+					<button type="submit" name="submit" class="btn btn-success btn-md">Đăng bài viết</button>
 					<button type="button" class="btn btn-md" style="margin-left:7px;">Hủy</button>
 				</div>
 			</form>
@@ -64,5 +91,15 @@
 				$(document).ready( function() {
 				$("#txtEditor").Editor();
 				});
+
+		$(function() {
+			console.log("abc");
+
+			$(".Editor-editor").on("keyup", function() {
+				var content = $(this).text();
+				console.log(content);
+				$("#content").val(content);
+			});
+		});
 	</script>
 </html>
