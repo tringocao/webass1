@@ -29,9 +29,9 @@
                         </div>
                         <div class="user-wrapper">
                             <div class="button-wrapper verticle-center" style="display: ${login ? "none" : "inline-block"}">
-                                <a href="dangnhap.html">Đăng nhập</a>
+                                <a href="index1.php">Đăng nhập</a>
                                 <span> | </span>
-                                <a href="dangky.html">Đăng ký</a>
+                                <a href="dangky.php">Đăng ký</a>
                             </div>
                             <div class="button-wrapper verticle-center" style="display: ${login ? "inline-block" : "none"}">
                                 <a href="user-info.html">

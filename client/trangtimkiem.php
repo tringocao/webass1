@@ -111,7 +111,7 @@
                             <a href="noidungbaiviet.php?id='
                             . $row["ID"]
                             .
-                            '>
+                            '">
                             '
                             . $row["title"]
                             .
@@ -132,7 +132,7 @@
                                 <img src="./images/lich.png" alt="khong tim thay">
                                 <span>
                                 '
-                            .$row["ngaydang"]
+                            .strval(date('d/m/Y - H:i:s', strtotime($row["ngaydang"])))
                             .
                                 '
                                 </span><br>
