@@ -1,26 +1,47 @@
 <?php 
 	session_start();
-	$_SESSION['username']= "abcjkl";
+	$_SESSION['username']= "dakpham";
 	if (isset($_POST['submit'])) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "assignment";
+		$dbname = "ass2";
 		$conn = new mysqli($servername, $username, $password, $dbname);
 
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
-		$id = 199;
+		$id = time();
 		$title = $_POST["title"];
-		$nguoidang = $_SESSION['username'];
+		$username = $_SESSION['username'];
 		$ngaydang = date("Y-m-d h:i:s",time());
+		$type = $_POST["location"];
 		$noidung = $_POST["content"];
-		$sql = "INSERT INTO baiviet (ID, title, nguoidang, ngaydang, noidung, hinhanh) VALUES ('$id', '$title', '$nguoidang', '$ngaydang', '$noidung', 'test.jpg')";
+		$sql = "INSERT INTO baiviet (ID, title, Username, ngaydang, noidung, type, luot_xem) VALUES ('$id', '$title', '$username', '$ngaydang', '$noidung', '$type', 0)";
 		if (mysqli_query($conn, $sql)) {
-		    echo "Add success";
+		    echo '
+            <html>
+                <br/><br/>
+                <p style="font-size: 30px; font-style: italic; font-weight: bold;">
+                    Đã tạo bài viết thành công, click vào <a style="font-style: italic; font-weight: bold;" href="trangcanhan.php?username='. $username . '">Link sau đây</a> để trở lại trang cá nhân
+                </p>
+            </html>
+        ';
 		} else {
 		    echo "Error Adding record: " . mysqli_error($conn);
+		}
+
+		$name       = $_FILES['choose_file']['name'];  
+    	$temp_name  = $_FILES['choose_file']['tmp_name'];
+    	$info = pathinfo($name);
+		$ext = $info['extension']; // get the extension of the file
+		$newname = (time()).".".$ext;
+
+		$target = 'images/'.$newname;
+		move_uploaded_file($temp_name, $target);
+		$sql = "INSERT INTO img (name, vitrianh, idbaiviet) VALUES ('$name', '$target', '$id')";
+		if (!mysqli_query($conn, $sql)) {
+			echo "Error Upload Image: " . mysqli_error($conn);
 		}
 	}
 ?>
@@ -50,7 +71,7 @@
 			<div id="title">
 				Đăng bài viết mới
 			</div>
-			<form action="thembaiviet.php" method="POST">
+			<form action="thembaiviet.php" method="POST" enctype="multipart/form-data">
 				<textarea id="content" style="display:none;" name="content"> </textarea> 
 				<div id="info" style="font-size:17px;">
 					<div>
@@ -72,9 +93,14 @@
 						<div class="col-6 col-lg-2">
 							Chọn ảnh hiển thị
 						</div>
-						<div class="col-6 col-lg-3">
-							<input type="file" id="choose_file" value="Chọn tệp" class="col-12 col-lg-12">
+						<div class="col-3 col-lg-3">
+							<input type="file" id="choose_file" name="choose_file" value="Chọn tệp" class="col-12 col-lg-12">
 							<label id="choose_file_label" for="choose_file"><i class="fa fa-folder-open"></i> Chọn tệp</label>
+						</div>
+						<div class="col-3 col-lg-3" >
+							<p id="displayFileName">
+								
+							</p>
 						</div>
 					</div>
 				</div>
@@ -88,9 +114,19 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-				$(document).ready( function() {
-				$("#txtEditor").Editor();
-				});
+		$(document).ready( function() {
+			$("#txtEditor").Editor();
+			$("#choose_file").on("change", function (e) {
+    
+		        var file = e.target.files[0];
+
+		        console.log(file.name);
+		        $("#displayFileName").text(file.name);
+		        // First request to our server to GET the result key
+		        
+		        
+		    });
+		});
 
 		$(function() {
 			console.log("abc");
@@ -101,5 +137,6 @@
 				$("#content").val(content);
 			});
 		});
+
 	</script>
 </html>
