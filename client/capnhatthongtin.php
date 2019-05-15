@@ -6,6 +6,8 @@
     $gender=$_GET['gender'];
     $birthday=$_GET['birthday'];
     $phone=$_GET['phone'];
+    $avatar=$_GET['avatar'];
+    $sobaiviet=$_GET['sobaiviet'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,26 +32,26 @@
         <div class="navbar navbar-expand-sm bg-light" > <!-- Remove id="all_body"-->
             <div class="col-md-3" style="height: 100%">
                 <div class="row" style="margin:auto;">
-                    <a href="./images/avatar.jpg" style="margin:auto;"><img src="./images/avatar.jpg" alt="myavatar" width="150" height="150" class="rounded-corners" style="margin:auto;"></a>
+                    <a href="<?php echo $avatar; ?>" style="margin:auto;"><img src="<?php echo $avatar; ?>" alt="myavatar" width="150" height="150" class="rounded-corners" style="margin:auto;"></a>
                 </div>
                 <br>
-                <div class="row justify-content-center">
+                <!-- <div class="row justify-content-center">
                     <button type="submit" class="btn btn-primary">Cập nhật Avatar</button>
-                </div>
+                </div> -->
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-12">
                         <p id="username"><?php echo $fullname;?></p>
                     </div>
-                    <div class="col-3">
+                    <!-- <div class="col-3">
                         <a href="#"><img src="./images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row"><div class="col-12"><p class="u_info">Username: <?php echo $username; ?></p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info">Giới tính: <?php echo $gender; ?></p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: <?php echo $birthday; ?></p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: <?php echo $phone; ?></p></div></div>
                 <div class="row"><div class="col-12"><p class="u_info" style="font-size: 18px;">Số bài viết</p></div></div>
-                <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b>20</b></p></div></div>
+                <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b><?php echo $sobaiviet; ?></b></p></div></div>
             </div>
             <div class="col-md-9" style="height: 100%">
                 <div class="row">
