@@ -14,7 +14,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "assignment";
+    $dbname = "ass2";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     require("../lib/vendor/autoload.php");
@@ -24,14 +24,14 @@
     $mail->isSMTP();                            
     $mail->Host = 'smtp.gmail.com';            
     $mail->SMTPAuth = true;                     
-    $mail->Username = 'mssv@hcmut.edu.vn';          
-    $mail->Password = 'password';
+    $mail->Username = 'tringocao1@gmail.com';          
+    $mail->Password = 'ass2)3)456';
     $mail->SMTPSecure = 'tls';               
     $mail->Port = 587;
     // $mail->SMTPDebug = 2;
     $mail->IsHTML(true);
-    $mail->setFrom('1513865@hcmut.edu.vn', 'BKTravel');
-    $mail->addReplyTo('1513865@hcmut.edu.vn', 'BKTravel'); 
+    $mail->setFrom('tringocao1@gmail.com', 'BKTravel');
+    $mail->addReplyTo('tringocao1@gmail.com', 'BKTravel'); 
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -40,7 +40,8 @@
         $email = $_POST['username'];
         if (!is_null($email)) {
             $password = generateRandomString(6);
-            $sql = "UPDATE dang_ky SET Mat_khau_lan_1 = '".$password."' WHERE Email='".$email."'";
+            $hashPassword = md5($password);
+            $sql = "UPDATE dang_ky SET Mat_khau='$hashPassword' WHERE Email='$email'";
             if (!mysqli_query($conn, $sql)) {
                 echo "Đã có lỗi xảy ra, vui lòng thử lại sau" . mysqli_error($conn);
                 return;
@@ -55,12 +56,18 @@
                 echo 'Message could not be sent.';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
-                echo 'Message has been sent';
+                echo '
+                <html>
+                    <br/><br/>
+                    <p style="font-size:20px; font-style: italic; font-weight: bold;">
+                        Mật khẩu mới đã được gửi đến địa chỉ:' . $email .'  <a style="font-style: italic; font-weight: bold;" href="dangnhap.php">Trở lại trang đăng nhập</a>
+                    </p>
+                </html>
+            ';
             }
         }
-    } else if (isset($_POST['continue'])) {
-
     }
+    mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,7 +102,7 @@
                             <label for="username">Nhập email hoặc tên người dùng: </label>
                             <input type="email" class="form-control" name="username" placeholder="maibaloc">
                         </div>
-                        <button type="submit" class="btn btn-primary" name="cancel">Bỏ qua</button>
+                        <button type="button" class="btn btn-primary" name="cancel" onclick="window.location.href='dangnhap.php'">Bỏ qua</button>
                         <button type="submit" class="btn btn-primary" name="continue">Tiếp tục</button>
                     </form>                
                 </div>
