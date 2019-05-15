@@ -64,7 +64,7 @@
                             <input type="date" class="form-control" id="date" name="date" placeholder="" required>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
+                            <input type="checkbox" class="form-check-input" id="remember_dk" name = "remember_dk" required>
                             <label class="form-check-label" for="remember">Bạn có chắc chắn muốn đăng ký</label>
                         </div>
 
