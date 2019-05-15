@@ -16,12 +16,20 @@
         if (isset($username) && isset($password)){
             $sql = "SELECT * FROM dang_ky WHERE Username='$username' AND Mat_khau='$password'";
             $query = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($query);
             $num_of_row = mysqli_num_rows($query);
             if ($num_of_row > 0){
-                $_SESSION['username'] = $username;
+                $row = mysqli_fetch_assoc($query);
+                $role = $row['role'];
+                if (isset($_POST['remember'])){
+                    $_SESSION['username'] = $username;
+                }
                 mysqli_close($conn);
-                header("Location: trangcanhan.php?username=$username");
+                if ($role == "user"){
+                    header("Location: trangcanhan.php?username=$username");
+                }
+                else{
+                    include('../admin/index.php');
+                }
             }
             else{
                 mysqli_close($conn);

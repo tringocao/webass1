@@ -36,7 +36,7 @@
                             <input type="password" class="form-control" id="pass" name="pass" placeholder="maibalocpassword" required>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
                             <label class="form-check-label" for="remember">Ghi nhớ tên đăng nhập</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Đăng nhập</button>
