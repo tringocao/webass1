@@ -33,6 +33,9 @@
 
 		$name       = $_FILES['choose_file']['name'];  
     	$temp_name  = $_FILES['choose_file']['tmp_name'];
+    	if (empty($name)) {
+    		return;
+    	}
     	$info = pathinfo($name);
 		$ext = $info['extension']; // get the extension of the file
 		$newname = (time()).".".$ext;
