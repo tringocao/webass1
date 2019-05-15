@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	$_SESSION['username']= "dakpham";
 	if (isset($_POST['submit'])) {
 		$servername = "localhost";
 		$username = "root";
