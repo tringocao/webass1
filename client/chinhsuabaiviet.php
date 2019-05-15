@@ -17,11 +17,11 @@
   	$title = $row['title'];
   	$noidung = $row['noidung'];
   	$type = $row['type'];
-	// $sql = "INSERT INTO img (name, vitrianh, idbaiviet) VALUES ('$name', '$target', '$id')";
-	// 	if (!mysqli_query($conn, $sql)) {
-	// 		echo "Error Upload Image: " . mysqli_error($conn);
-	// 	}
-	// }
+  	$sql1 = "SELECT id, name FROM img WHERE idbaiviet='".$id."'";
+  	$result1 = mysqli_query($conn, $sql1);
+  	$row1 = $result1->fetch_assoc();
+  	$imageId = $row1['id'];
+  	$imageName = $row1['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,9 +49,11 @@
 			<div id="title">
 				Chỉnh sửa bài viết
 			</div>
-			<form action="chinhsuabaiviet.php" method="POST" enctype="multipart/form-data">
+			<form action="xulychinhsuabaiviet.php" method="POST" enctype="multipart/form-data">
 				<textarea id="content" style="display:none;" name="content"> </textarea> 
 				<div id="info" style="font-size:17px;">
+					<input type="hidden" name="id" value="<?php echo$id?>">
+					<input type="hidden" name="imageId" value="<?php echo$imageId?>">
 					<div>
 						<input type="text" name="title" class="form-control post_title" placeholder="Tiêu đề bài viết" value="<?php echo $title?>">
 					</div>
@@ -103,6 +105,7 @@
 		        
 		    });
 		    $(".Editor-editor").text("<?php echo $noidung?>");
+		    $("#displayFileName").text("<?php echo $imageName?>");
 		});
 
 		$(function() {
