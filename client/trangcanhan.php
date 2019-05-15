@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-sm-6"><p class="sub_title" style="border-bottom: 2px solid blue;">BÀI VIẾT MỚI NHẤT</p></div>
                         <div class="col-sm-3">
-                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='taobaiviet.php?username=<?php echo $username; ?>'" >Tạo bài viết</button>
+                            <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='thembaiviet.php?username=<?php echo $username; ?>'" >Tạo bài viết</button>
                         </div>
                         <div class="col-sm-3">
                             <button type="button" class="btn btn-danger btn-block" onclick="window.location.href='dangxuat.php'">Đăng xuất</button>
@@ -139,7 +139,11 @@
                                                 '\'">Xem thêm</button>
                                             </div>
                                             <div class="col-4">
-                                                <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="window.location.href=\'chinhsuabaiviet.php?id='
+                                                . $row1['ID']
+                                                .
+                                                '\'">Chỉnh sửa bài viết</button>
                                             </div>
                                         </div>
                                     </div>
