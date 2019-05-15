@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../lib/datatables/jquery.dataTables.min.css" />
 
@@ -14,14 +15,15 @@
   <link rel="stylesheet" type="text/css" href="../lib/fontawesome/css/fontawesome-all.min.css">
   <script type="text/javascript" src="../lib/dataTables/jquery.dataTables.min.js"></script>
 
-  <script src="../lib/tinymce/tinymce.min.js"></script>
-
+  <script type="text/javascript" src="dataTables/jquery.dataTables.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js"></script>
-  <title>Page Management</title>
+  <title>User Management</title>
 </head>
 
 <body>
+ <?php
+      require_once("../model/connect.php");
+    ?>
   <div class="container-fluid body">
     <div class="row">
             <div class="col-3" id="left-sidebar">
@@ -33,19 +35,19 @@
             </a>
           </li>
           <li id="deal" class="flex-center-between py-2 px-3">
-            <a href="post-list.html" role="tablist">
+            <a href="post-list.php" role="tablist">
               <i class="fas fa-piggy-bank mr-2"></i>
               Posts management
             </a>
           </li>
           <li id="page" class="flex-center-between py-2 px-3">
-            <a href="food-list.html" role="tablist">
+            <a href="food-list.php" role="tablist">
               <i class="far fa-newspaper mr-2"></i>
               Food management
             </a>
           </li>
           <li id="user" class="flex-center-between py-2 px-3">
-            <a href="user-list.html" role="tablist">
+            <a href="index.php" role="tablist">
               <i class="fas fa-users mr-2"></i>
               User management
             </a>
@@ -55,42 +57,67 @@
       <div class="col-12 col-md-9 py-4" id="main">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Page Management</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Manage Page</li>
+            <li class="breadcrumb-item"><a href="index.php">User Management</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User List</li>
           </ol>
         </nav>
-        <div class="row mb-3">
-          <div class="col-12 col-md-2">
-            Tiêu đề chính
-          </div>
-          <div class="col-12 col-md-10">
-            <input type="text" class="form-control" placeholder="Tiêu đề chính" value="Bún đậu mắm tôm"> 
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-12 col-md-2">
-            Tiêu đề phụ
-          </div>
-          <div class="col-12 col-md-10">
-            <input type="text" class="form-control" placeholder="Tiêu đề phụ" value="Kiều Bảo"> 
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-12 col-md-2">
-            Nội dung
-          </div>
-          <div class="col-12 col-md-10">
-            <textarea class="tinymce form-control"></textarea>
-          </div>
-        </div>
-        <div class="row mb-3 flex-center">
+        <div class="row mb-3 flex-center mt-3">
           <div class="col clearfix">
-            <button class="btn btn-primary float-right">Lưu lại</button>
+            <a class="btn btn-primary float-right" href="user-create-edit.html">Logout</a>
           </div>
         </div>
+        <table id="table" cellspacing="0" width="100%" class="display table table-condensed table-striped nowrap">
+          <thead>
+            <tr>
+              <th>STT</th>
+			  <th>Username</th>
+			  <th>Họ tên</th>
+              <th>Ngày sinh</th>
+              <th>Giới tính</th>
+			  <th>Vai Trò</th>
+			  <th>Hành động</td>
+            </tr>
+          </thead>
+          <tbody>
+		   <?php
+            $stt = 1 ;
+            $sql = "SELECT * FROM dang_ky;";
+            // thực thi câu $sql với biến conn lấy từ file connection.php
+            $query = mysqli_query($conn,$sql);
+            while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+          ?>
+            <tr>
+              <td><?php echo $stt++ ?></td>
+              <td>
+                <a href="user-create-edit.php?username=<?php echo $data["Username"]; ?>">
+                  <?php echo $data["Username"]; ?>
+                </a>
+              </td>
+			  <td><?php echo $data["Ho_va_ho_lot"]." ".$data["Ten"]; ?></td>
+              <td><?php echo $data["Ngay_sinh"]; ?></td>
+              <td><?php echo $data["Gioi_tinh"]; ?></td>
+			  <td>
+                <?php
+                    if ($data["role"] == "admin") {
+                      echo "Administrator";
+                    }else{
+                      echo "Member";
+                    }
+                ?>
+              </td>
+			  <td><a href="user-ban.php?username=<?php echo $data["Username"]; ?>">Ban</a></td>
+            </tr>
+          <?php
+            }
+			            mysqli_close($conn);
+
+          ?>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

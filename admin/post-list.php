@@ -19,6 +19,9 @@
 </head>
 
 <body>
+ <?php
+      require_once("../model/connect.php");
+    ?>
   <div class="container-fluid body">
     <div class="row">
             <div class="col-3" id="left-sidebar">
@@ -30,19 +33,19 @@
             </a>
           </li>
           <li id="deal" class="flex-center-between py-2 px-3">
-            <a href="post-list.html" role="tablist">
+            <a href="post-list.php" role="tablist">
               <i class="fas fa-piggy-bank mr-2"></i>
               Posts management
             </a>
           </li>
           <li id="page" class="flex-center-between py-2 px-3">
-            <a href="food-list.html" role="tablist">
+            <a href="food-list.php" role="tablist">
               <i class="far fa-newspaper mr-2"></i>
               Food management
             </a>
           </li>
           <li id="user" class="flex-center-between py-2 px-3">
-            <a href="user-list.html" role="tablist">
+            <a href="index.php" role="tablist">
               <i class="fas fa-users mr-2"></i>
               User management
             </a>
@@ -52,13 +55,13 @@
       <div class="col-12 col-md-9 py-4" id="main">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Posts Management</a></li>
+            <li class="breadcrumb-item"><a href="index.php">Posts Management</a></li>
             <li class="breadcrumb-item active" aria-current="page">Posts List</li>
           </ol>
         </nav>
         <div class="row mb-3 flex-center mt-3">
           <div class="col clearfix">
-            <a class="btn btn-primary float-right" href="post-create-edit.html">Tạo mới</a>
+            <a class="btn btn-primary float-right" href="food-create-edit.html">Logout</a>
           </div>
         </div>
         <table id="table" cellspacing="0" width="100%" class="display table table-condensed table-striped nowrap">
@@ -68,43 +71,46 @@
               <th>Tiêu đề</th>
               <th>Thời gian</th>
               <th>Tác giả</th>
-              <th>Tỉnh thành</th>
+              <th>Miền</th>
+			  <th>Hành động</td>
+
             </tr>
           </thead>
           <tbody>
+            <?php
+            $stt = 1 ;
+            $sql = "SELECT * FROM baiviet;";
+            // thực thi câu $sql với biến conn lấy từ file connection.php
+            $query = mysqli_query($conn,$sql);
+            while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+				if($data["type"] != "tổng hợp"){
+          ?>
             <tr>
-              <td>1</td>
+              <td><?php echo $stt++ ?></td>
               <td>
-                <a href="post-create-edit.html">
-                  10 thắng cảnh du lịch hấp dẫn nhất Việt Nam
-                </a>
+                  <?php echo $data["title"]; ?>
               </td>
-              <td>01/01/2019</td>
-              <td>Tri</td>
-              <td>TP. HCM</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <a href="post-create-edit.html">
-                  10 thắng cảnh du lịch hấp dẫn nhất Việt Nam
-                </a>
+              <td><?php echo $data["ngaydang"]; ?></td>
+              <td><?php echo $data["Username"]; ?></td>
+			  <td>
+                <?php
+                    if ($data["type"] == "bắc") {
+                      echo "Bắc";
+                    }else if ($data["type"] == "nam"){
+                      echo "Nam";
+                    }else {
+                      echo "Trung";
+                    }
+                ?>
               </td>
-              <td>01/01/2019</td>
-              <td>tiki.vn</td>
-              <td>TP. HCM</td>
+			  <td><a href="post-ban.php?id=<?php echo $data["ID"]; ?>">Xóa</a></td>
             </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <a href="post-create-edit.html">
-                  10 thắng cảnh du lịch hấp dẫn nhất Việt Nam
-                </a>
-              </td>
-              <td>01/01/2019</td>
-              <td>Tri</td>
-              <td>TP. HCM</td>
-            </tr>
+          <?php
+				}
+            }
+			            mysqli_close($conn);
+
+          ?>
           </tbody>
         </table>
       </div>
