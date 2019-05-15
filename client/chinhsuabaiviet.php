@@ -50,7 +50,7 @@
 				Chỉnh sửa bài viết
 			</div>
 			<form action="xulychinhsuabaiviet.php" method="POST" enctype="multipart/form-data">
-				<textarea id="content" style="display:none;" name="content"> </textarea> 
+				<textarea id="content" style="display:none;" name="content"><?php echo$noidung?></textarea> 
 				<div id="info" style="font-size:17px;">
 					<input type="hidden" name="id" value="<?php echo$id?>">
 					<input type="hidden" name="imageId" value="<?php echo$imageId?>">
