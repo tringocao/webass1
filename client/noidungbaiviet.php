@@ -84,6 +84,16 @@
             <br>
               <?php echo $row["noidung"]; ?>
             </p>
+            <br>
+            <div style="background-color: #eee; color: #9d234c; padding-left: 10px;"><b>Ý kiến bạn đọc</b></div>
+            <div id="comment"></div>
+            <form style="margin-top: 20px;">
+              <div style="padding: 10px; background-color: #eee;">
+                <textarea id="content" rows="4" style="width: 100%;" placeholder="Ý kiến của bạn"></textarea><br>
+                <button id="submit" type="button" style="float: right; padding-left: 20px; padding-right: 20px; background-color: #9d234c; color: #fff;">Gửi</button>
+                <div style="clear: both;"></div>
+              </div>
+            </form>
         </div>
 
         <div class="col-4">
@@ -186,6 +196,76 @@
 
   </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+    var postId = <?php echo $submit_id?>;
+    var data = { 
+      type: "get",
+      postId: postId
+    };
+    $.ajax({
+      // The type of request.
+      type: "POST",
+      // The link we are accessing.
+      url: "xulycomment.php",
+
+      data: { 
+        type: "get",
+        content: "",
+        username: "",
+        postId: postId
+      },
+        
+      // The type of data that is getting returned.
+      // dataType: "json",
+
+      success: function( jsonData ){
+        updateContent(jsonData);
+      },
+      error: function(e) {
+        console.log(e);
+      }
+    });
+    $("#submit").on("click", function() {
+      var postId = "<?php echo $submit_id?>";
+      var content = $("#content").val();
+      $("#content").val("");
+      var username = "<?php echo $username?>";
+      var data = { 
+        postId: postId,
+        content : content,
+        username: username,
+        type: "insert"
+      };
+      $.ajax({
+        // The type of request.
+        type: "POST",
+        // The link we are accessing.
+        url: "xulycomment.php",
+
+        data: data,
+          
+        // The type of data that is getting returned.
+        // dataType: "json",
+
+        success: function( jsonData ){
+          updateContent(jsonData);
+        }
+      });
+    });
+
+    function updateContent(jsonData) {
+      console.log(jsonData);
+      var comments = jQuery.parseJSON(jsonData);
+      var str = "<br>";
+      for (i = 0; i < comments.length; i++) {
+        str = str + comments[i]["content"] + " <br><b>" + comments[i]["username"] + "</b><br><br>";
+      }
+      document.getElementById("comment").innerHTML = str;
+    }
+  });
+</script>
 
 <?php
     mysqli_close($conn);
