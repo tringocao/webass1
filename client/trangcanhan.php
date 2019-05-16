@@ -151,7 +151,7 @@
                                             <div class="col-4">
                                                 <button type="button" class="btn btn-primary btn-sm"
                                                     onclick="window.location.href=\'chinhsuabaiviet.php?id='
-                                                . $row1['ID']
+                                                . $row1['ID'] . "&username=" . $username
                                                 .
                                                 '\'">Chỉnh sửa bài viết</button>
                                             </div>

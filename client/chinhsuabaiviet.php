@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	// session_start();
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -11,6 +11,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 	$id = $_GET['id'];
+	$nguoidung = $_GET['username'];
 	$sql = "SELECT title, noidung, type FROM baiviet WHERE ID='".$id."'";
 	$result = mysqli_query($conn, $sql);
 
@@ -52,7 +53,7 @@
 			<div id="title">
 				Chỉnh sửa bài viết
 			</div>
-			<form action="xulychinhsuabaiviet.php" method="POST" enctype="multipart/form-data">
+			<form action="xulychinhsuabaiviet.php?username=<?php echo $nguoidung; ?>" method="POST" enctype="multipart/form-data">
 				<textarea id="content" style="display:none;" name="content"><?php echo$noidung?></textarea> 
 				<div id="info" style="font-size:17px;">
 					<input type="hidden" name="id" value="<?php echo$id?>">
