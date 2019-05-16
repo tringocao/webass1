@@ -163,23 +163,29 @@
                         if ($num_row >1){
                             $row2 = mysqli_fetch_assoc($sql_query);
                             $ngaydang = $row2["ngaydang"];
+                            $id_baiviet2 = $row2['ID'];
+                            $sql_anhbaiviet2 = "SELECT * FROM img WHERE idbaiviet='$id_baiviet2'";
+                            $sql_anhbaiviet2_query = mysqli_query($conn, $sql_anhbaiviet2);
+                            $sql_row2 = mysqli_fetch_assoc($sql_anhbaiviet2_query);
+                            $img_2 = $sql_row1['vitrianh'];
                             $noidung = "";
                             if (strlen($row2['noidung']) <= 350){ $noidung = $row2['noidung'] . "..."; }
                             else{
                                 $noidung = substr($row2['noidung'], 0, 350) . "...";
                             }
                             echo '
-                                <br/>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
+                                        <img src="' . $img_2 . '" alt="Hình tạm thời" width="150" height="150">
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row"><div class="col-12"> <h5>' .$row2['title'].'</h5> </div></div>
                                         <div class="row">
                                             <div class="col-3"><b>Người đăng: </b></div>
                                             <div class="col-3">'. $fullname . '</div>
-                                            <div class="col-6">' . $row2["ngaydang"] . '</div>
+                                            <div class="col-6">' 
+                                            . strval(date('d/m/Y - H:i:s', strtotime($row2["ngaydang"])))
+                                            . '</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">'. $noidung .'</div>
@@ -192,7 +198,11 @@
                                                 '\'">Xem thêm</button>
                                             </div>
                                             <div class="col-4">
-                                                <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="window.location.href=\'chinhsuabaiviet.php?id='
+                                                . $row2['ID']
+                                                .
+                                                '\'">Chỉnh sửa bài viết</button>
                                             </div>
                                         </div>
                                     </div>
@@ -216,3 +226,41 @@
 <?php
     mysqli_close($conn);
 ?>
+
+
+
+
+<!-- echo '
+                                <br/>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row"><div class="col-12"> <h5>' .$row2['title'].'</h5> </div></div>
+                                        <div class="row">
+                                            <div class="col-3"><b>Người đăng: </b></div>
+                                            <div class="col-3">'. $fullname . '</div>
+                                            <div class="col-6">' . $row2["ngaydang"] . '</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">'. $noidung .'</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href=\'noidungbaiviet.php?id='
+                                                . $row2['ID']
+                                                .
+                                                '\'">Xem thêm</button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="window.location.href=\'chinhsuabaiviet.php?id='
+                                                . $row2['ID']
+                                                .
+                                                '\'">Chỉnh sửa bài viết</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            '; -->
