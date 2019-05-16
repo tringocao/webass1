@@ -17,6 +17,9 @@
 		$type = $_POST["location"];
 		$noidung = $_POST["content"];
 		$sql = "UPDATE baiviet SET title='".$title."', type='".$type."', noidung='".$noidung."' WHERE id='".$id."'";
+		if (isset($_FILES['choose_file'])){
+			
+		}
 		if (mysqli_query($conn, $sql)) {
 		    echo '
             <html>
