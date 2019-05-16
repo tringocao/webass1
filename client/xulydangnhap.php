@@ -20,9 +20,9 @@
             if ($num_of_row > 0){
                 $row = mysqli_fetch_assoc($query);
                 $role = $row['role'];
-                // if (isset($_POST['remember'])){
-                //     $_SESSION['username'] = $username;
-                // }
+                if (isset($_POST['remember'])){
+                    $_SESSION['username'] = $username;
+                }
 
                 if (isset($_POST['remember']))
                 {

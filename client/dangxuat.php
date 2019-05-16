@@ -1,6 +1,10 @@
 <?php
     session_start();
     session_destroy();
+
+    setcookie("username", "", time()+ 2592000);
+    setcookie("password", "", time()+ 2592000);
+
 ?>
 
 <html>
