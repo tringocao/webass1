@@ -81,7 +81,7 @@
 								}
 								else {	}
 								?>	
-            <a class="btn btn-primary float-right" href=href="trangcanhan.php?username=<?php echo $username; ?>">Logout</a>
+            <a class="btn btn-primary float-right" href="logout.php">Logout</a>
 			</div>
         </div>
         <table id="table" cellspacing="0" width="100%" class="display table table-condensed table-striped nowrap">
