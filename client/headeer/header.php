@@ -27,7 +27,9 @@
                         <div class="user-wrapper">
                             <div class="button-wrapper verticle-center" style="display: ${login ? "none" : "inline-block"}">
 							<?php
-								session_start();
+							if (session_status() == PHP_SESSION_NONE) {
+										session_start();
+									}
 								if (isset($_SESSION['username'])) {
 									$username = $_SESSION['username'];
 									$sql = "select * from dang_ky where Username = '$username'";
