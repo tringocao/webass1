@@ -16,6 +16,9 @@
         
     </head>
     <body>
+		<?php require_once ("connect.php")?>
+	  	<?php include ("headeer/header.php")?>
+
         <script>COMMON_TEMPLATE.header();</script>
         <div class="container">
             <div class="row">

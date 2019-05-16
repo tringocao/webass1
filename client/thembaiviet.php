@@ -1,6 +1,4 @@
 <?php 
-	session_start();
-	if (isset($_POST['submit'])) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -11,9 +9,11 @@
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
+	if (isset($_POST['submit'])) {
+
 		$id = time();
 		$title = $_POST["title"];
-		$username = $_SESSION['username'];
+		$username = $_POST['username'];
 		$ngaydang = date("Y-m-d h:i:s",time());
 		$type = $_POST["location"];
 		$noidung = $_POST["content"];
@@ -69,12 +69,15 @@
 		<link rel="stylesheet" href="css/thembaiviet.css">
 	</head>
 	<body>
+		  	<?php include ("headeer/header.php")?>
+
 		<script>COMMON_TEMPLATE.header();</script>
 		<div class="wrap_editor container"> 
 			<div id="title">
 				Đăng bài viết mới
 			</div>
 			<form action="thembaiviet.php" method="POST" enctype="multipart/form-data">
+								<input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
 				<textarea id="content" style="display:none;" name="content"> </textarea> 
 				<div id="info" style="font-size:17px;">
 					<div>

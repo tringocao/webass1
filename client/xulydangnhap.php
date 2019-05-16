@@ -28,7 +28,7 @@
                     header("Location: trangcanhan.php?username=$username");
                 }
                 else{
-                    include('../admin/index.php');
+					header("Location: ../admin/index.php?username=$username");
                 }
             }
             else{

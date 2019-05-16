@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="./css/style_3mien.css">
     </head>
     <body id="body">
+	  	<?php include ("headeer/header.php")?>
+
         <script>COMMON_TEMPLATE.header();</script>
         
         <div class="container">

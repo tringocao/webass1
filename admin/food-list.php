@@ -17,6 +17,9 @@
   <title>Page Management</title>
 </head>
 <body>
+ <?php
+      require_once("../model/connect.php");
+    ?>
   <div class="container-fluid body">
     <div class="row">
             <div class="col-3" id="left-sidebar">
@@ -28,19 +31,19 @@
             </a>
           </li>
           <li id="deal" class="flex-center-between py-2 px-3">
-            <a href="post-list.html" role="tablist">
+            <a href="post-list.php" role="tablist">
               <i class="fas fa-piggy-bank mr-2"></i>
               Posts management
             </a>
           </li>
           <li id="page" class="flex-center-between py-2 px-3">
-            <a href="food-list.html" role="tablist">
+            <a href="food-list.php" role="tablist">
               <i class="far fa-newspaper mr-2"></i>
               Food management
             </a>
           </li>
           <li id="user" class="flex-center-between py-2 px-3">
-            <a href="user-list.html" role="tablist">
+            <a href="index.php" role="tablist">
               <i class="fas fa-users mr-2"></i>
               User management
             </a>
@@ -50,59 +53,77 @@
       <div class="col-12 col-md-9 py-4" id="main">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Food Management</a></li>
+            <li class="breadcrumb-item"><a href="index.php">Food Management</a></li>
             <li class="breadcrumb-item active" aria-current="page">Food List</li>
           </ol>
         </nav>
         <div class="row mb-3 flex-center mt-3">
           <div class="col clearfix">
-            <a class="btn btn-primary float-right" href="food-create-edit.html">Tạo mới</a>
-          </div>
+				<?php
+								session_start();
+								if (isset($_SESSION['username'])) {
+									$username = $_SESSION['username'];
+									$sql = "select * from dang_ky where Username = '$username'";
+									$query = mysqli_query($conn, $sql);
+									if (!$query) {
+										printf("Error: %s\n", mysqli_error($conn));
+										exit();
+									}
+								while ( $data = mysqli_fetch_array($query) ) {
+									$lastname = $data["Ho_va_ho_lot"];
+									$name = $data["Ten"];
+									$email = $data["Email"];
+									$level = $data["role"];
+								}							
+							?>
+							    <a class="float-left"><?php echo $lastname." ".$name; ?></a>							
+							<?php
+								}
+								else {	}
+								?>	
+            <a class="btn btn-primary float-right" href=href="trangcanhan.php?username=<?php echo $username; ?>">Logout</a>
+			</div>
         </div>
         <table id="table" cellspacing="0" width="100%" class="display table table-condensed table-striped nowrap">
           <thead>
             <tr>
-              <th>STT</th>
-              <th>Tiêu đề chính</th>
-              <th>Tiêu đề phụ</th>
-              <th>Ngày tạo</th>
-              <th>Ngày chỉnh sửa</th>
+             <th>STT</th>
+              <th>Tiêu đề</th>
+              <th>Thời gian</th>
+              <th>Tác giả</th>
+              <th>Miền</th>
+			  <th>Hành động</td>
             </tr>
           </thead>
-          <tbody>
+           <tbody>
+            <?php
+            $stt = 1 ;
+            $sql = "SELECT * FROM baiviet;";
+            // thực thi câu $sql với biến conn lấy từ file connection.php
+            $query = mysqli_query($conn,$sql);
+            while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+				if($data["type"] == "tổng hợp"){
+          ?>
             <tr>
-              <td>1</td>
+              <td><?php echo $stt++ ?></td>
               <td>
-                <a href="food-create-edit.html">
-                  Bún đậu mắm tôm
-                </a>
+                  <?php echo $data["title"]; ?>
               </td>
-              <td>Kiều Bảo</td>
-              <td>15/10/2018</td>
-              <td>15/10/2018</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <a href="food-create-edit.html">
-                  Bún đậu mắm tôm
-                </a>
+              <td><?php echo $data["ngaydang"]; ?></td>
+              <td><?php echo $data["Username"]; ?></td>
+			  <td>
+                <?php
+                    echo ($data["type"]);
+                ?>
               </td>
-              <td>Kiều Bảo</td>
-              <td>15/10/2018</td>
-              <td>15/10/2018</td>
+			  <td><a href="food-ban.php?id=<?php echo $data["ID"]; ?>">Xóa</a></td>
             </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <a href="food-create-edit.html">
-                  Bún đậu mắm tôm
-                </a>
-              </td>
-              <td>Kiều Bảo</td>
-              <td>15/10/2018</td>
-              <td>15/10/2018</td>
-            </tr>
+          <?php
+				}
+            }
+			            mysqli_close($conn);
+
+          ?>
           </tbody>
         </table>
       </div>

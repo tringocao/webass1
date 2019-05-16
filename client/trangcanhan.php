@@ -20,6 +20,9 @@
     // if ($gender == "Nu") $gender = "Nữ"; // Chỉnh để có thể dùng tiếng việt
     $birthday = $row['Ngay_sinh'];
     $phone = $row['So_dien_thoai'];
+    $sql_sobaiviet = "SELECT * FROM baiviet WHERE Username='$username'";
+    $sql_sobaiviet_query = mysqli_query($conn, $sql_sobaiviet);
+    $sobaiviet = mysqli_num_rows($sql_sobaiviet_query);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +42,8 @@
             
     </head>
     <body>
+		  	<?php include ("headeer/header.php")?>
+
 		<script>COMMON_TEMPLATE.header();</script>
         <div class="container">
             <!-- Begin menu bar -->
@@ -76,7 +81,7 @@
                             <p id="username"><?php echo $fullname; ?></p>
                         </div>
                         <div class="col-3">
-                            <a href="capnhatthongtin.php<?php echo "?username=$username&fullname=$fullname&gender=$gender&birthday=$birthday&phone=$phone"; ?>"><img src="images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
+                            <a href="capnhatthongtin.php<?php echo "?username=$username&fullname=$fullname&gender=$gender&birthday=$birthday&phone=$phone&avatar=$image&sobaiviet=$sobaiviet"; ?>"><img src="images/pencil.jpg" alt="Change Avatar" width="15" height="15"></a>
                         </div>
                     </div>
                     <div class="row"><div class="col-12"><p class="u_info">Username: <?php echo $username ?></p></div></div>
@@ -84,7 +89,7 @@
                     <div class="row"><div class="col-12"><p class="u_info">Ngày sinh: <?php echo $birthday;?></p></div></div>
                     <div class="row"><div class="col-12"><p class="u_info">Số điện thoại: <?php echo $phone; ?></p></div></div>
                     <div class="row"><div class="col-12"><p class="u_info" style="font-size: 18px;">Số bài viết</p></div></div>
-                    <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b>20</b></p></div></div>
+                    <div class="row"><div class="col-12"><p class="u_info" style="font-size: 20px;"><b><?php echo $sobaiviet; ?></b></p></div></div>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
@@ -103,6 +108,11 @@
                         if ($num_row > 0){
                             $row1 = mysqli_fetch_assoc($sql_query);
                             $ngaydang = $row1["ngaydang"];
+                            $id_baiviet1 = $row1['ID'];
+                            $sql_anhbaiviet1 = "SELECT * FROM img WHERE idbaiviet='$id_baiviet1'";
+                            $sql_anhbaiviet1_query = mysqli_query($conn, $sql_anhbaiviet1);
+                            $sql_row1 = mysqli_fetch_assoc($sql_anhbaiviet1_query);
+                            $img_1 = $sql_row1['vitrianh'];
                             // $demo = "dsfkfslkkslfkjsfdkjfdsjlfdslfdslkdsfkjfdslkdsflkfksdlfsdkjkjfdslk";
                             // $substring = substr($demo, 0, 10);
                             $noidung = "";
@@ -117,7 +127,7 @@
                             echo '
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <img src="images/hinhtamthoi.jpg" alt="Hình tạm thời" width="150" height="150">
+                                        <img src="' . $img_1 . '" alt="Hình tạm thời" width="150" height="150">
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row"><div class="col-12"> <h5>' .$row1['title'].'</h5> </div></div>
@@ -176,7 +186,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-3">
-                                                <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href=\'noidungbaiviet.php?id='
+                                                . $row2['ID']
+                                                .
+                                                '\'">Xem thêm</button>
                                             </div>
                                             <div class="col-4">
                                                 <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>

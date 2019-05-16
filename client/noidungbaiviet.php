@@ -63,6 +63,8 @@
     <link rel="stylesheet" href="./css/style_3mien.css">
   </head>
   <body>
+    	<?php include ("headeer/header.php")?>
+
   	<script>COMMON_TEMPLATE.header();</script>
 
     <!--Begin main content-->
