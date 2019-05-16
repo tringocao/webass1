@@ -50,7 +50,7 @@
                                 <span> | </span>
                                 <a href="trangcanhan.php?username=<?php echo $username; ?>">Profile</a>
 								                                <span> | </span>
-								<a href="trangcanhan.php?username=<?php echo $username; ?>">Logout</a>
+								<a href="dangxuat.php">Logout</a>
 							
 							<?php
 								}
