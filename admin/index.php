@@ -62,8 +62,30 @@
           </ol>
         </nav>
         <div class="row mb-3 flex-center mt-3">
-          <div class="col clearfix">
-            <a class="btn btn-primary float-right" href="user-create-edit.html">Logout</a>
+		          <div class="col clearfix">
+				<?php
+								session_start();
+								if (isset($_SESSION['username'])) {
+									$username = $_SESSION['username'];
+									$sql = "select * from dang_ky where Username = '$username'";
+									$query = mysqli_query($conn, $sql);
+									if (!$query) {
+										printf("Error: %s\n", mysqli_error($conn));
+										exit();
+									}
+								while ( $data = mysqli_fetch_array($query) ) {
+									$lastname = $data["Ho_va_ho_lot"];
+									$name = $data["Ten"];
+									$email = $data["Email"];
+									$level = $data["role"];
+								}							
+							?>
+							    <a class="float-left"><?php echo $lastname." ".$name; ?></a>							
+							<?php
+								}
+								else {	}
+								?>	
+            <a class="btn btn-primary float-right" href=href="trangcanhan.php?username=<?php echo $username; ?>">Logout</a>
           </div>
         </div>
         <table id="table" cellspacing="0" width="100%" class="display table table-condensed table-striped nowrap">
