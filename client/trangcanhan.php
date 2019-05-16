@@ -184,7 +184,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-3">
-                                                <button type="button" class="btn btn-primary btn-sm">Xem thêm</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href=\'noidungbaiviet.php?id='
+                                                . $row2['ID']
+                                                .
+                                                '\'">Xem thêm</button>
                                             </div>
                                             <div class="col-4">
                                                 <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa bài viết</button>

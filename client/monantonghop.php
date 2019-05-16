@@ -2,7 +2,7 @@
 
 include('connect.php');
 
-$sql = "SELECT * FROM baiviet WHERE type='tonghop'";
+$sql = "SELECT * FROM baiviet WHERE type='tổng hợp'";
 $result = mysqli_query($conn, $sql);
 $end = mysqli_num_rows($result);
 
