@@ -2,17 +2,17 @@
 	session_start();
 	if (isset($_POST['submit'])) {
 		$servername = "localhost";
-		$username = "root";
+		$nguoidung = "root";
 		$password = "";
 		$dbname = "ass2";
-		$conn = new mysqli($servername, $username, $password, $dbname);
+		$conn = new mysqli($servername, $nguoidung, $password, $dbname);
 
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
 		$id = $_POST["id"];
 		$title = $_POST["title"];
-		$username = $_SESSION['username'];
+		$username = $_GET['username'];
 		$type = $_POST["location"];
 		$noidung = $_POST["content"];
 		$sql = "UPDATE baiviet SET title='".$title."', type='".$type."', noidung='".$noidung."' WHERE id='".$id."'";
