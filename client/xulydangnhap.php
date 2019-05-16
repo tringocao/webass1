@@ -2,7 +2,6 @@
     $username = $_POST['username'];
     $password = md5($_POST['pass']);
     ob_start();
-    session_start();
     // Connect to Database
     $dbHost = "localhost";
     $dbUser = "root";
@@ -20,9 +19,9 @@
             if ($num_of_row > 0){
                 $row = mysqli_fetch_assoc($query);
                 $role = $row['role'];
-                if (isset($_POST['remember'])){
-                    $_SESSION['username'] = $username;
-                }
+				    session_start();
+
+                $_SESSION['username'] = $username;
 
                 if (isset($_POST['remember']))
                 {

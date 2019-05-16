@@ -27,11 +27,11 @@
                         <div class="user-wrapper">
                             <div class="button-wrapper verticle-center" style="display: ${login ? "none" : "inline-block"}">
 							<?php
-							// if (session_status() == PHP_SESSION_NONE) {
-							// 			session_start();
-							// 		}
-								if (isset($_COOKIE['username'])) {
-									$username = $_COOKIE['username'];
+							 if (session_status() == PHP_SESSION_NONE) {
+							 			session_start();
+							 		}
+								if (isset($_SESSION['username'])) {
+									$username = $_SESSION['username'];
 									$sql = "select * from dang_ky where Username = '$username'";
 									$query = mysqli_query($conn, $sql);
 									if (!$query) {
