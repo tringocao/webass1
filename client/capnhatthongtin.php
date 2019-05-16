@@ -27,6 +27,8 @@
     </head>
     <!-- Begin body -->
     <body>
+	  	<?php include ("headeer/header.php")?>
+
         <script>COMMON_TEMPLATE.header();</script>
         <div class="container" id="update_info">
         <div class="navbar navbar-expand-sm bg-light" > <!-- Remove id="all_body"-->

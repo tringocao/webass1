@@ -22,6 +22,8 @@
         
     </head>
     <body>
+	  	<?php include ("headeer/header.php")?>
+
         <script>COMMON_TEMPLATE.header();</script>
         <div class="container">
             <div class="row">
