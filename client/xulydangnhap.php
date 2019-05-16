@@ -20,9 +20,16 @@
             if ($num_of_row > 0){
                 $row = mysqli_fetch_assoc($query);
                 $role = $row['role'];
-                if (isset($_POST['remember'])){
-                    $_SESSION['username'] = $username;
+                // if (isset($_POST['remember'])){
+                //     $_SESSION['username'] = $username;
+                // }
+
+                if (isset($_POST['remember']))
+                {
+                    setcookie ("username",$username,time()+ 2592000);
+                    setcookie ("password",$password,time()+ 2592000);    
                 }
+
                 mysqli_close($conn);
                 if ($role == "user"){
                     header("Location: trangcanhan.php?username=$username");
