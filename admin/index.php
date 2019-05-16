@@ -23,6 +23,7 @@
 <body>
  <?php
       require_once("../model/connect.php");
+	  
     ?>
   <div class="container-fluid body">
     <div class="row">
@@ -83,7 +84,8 @@
 				    <a class="float-left"><?php echo $lastname." ".$name; ?></a>							
 				<?php
 								}
-								else {	}
+								else {		header("Location: ../client/index1.php");
+}
 								?>	
             <a class="btn btn-primary float-right" href="logout.php">Logout</a>
           </div>
