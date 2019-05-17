@@ -27,6 +27,8 @@
     </head>
     <!-- Begin body -->
     <body>
+	<?php require_once("../model/connect.php");?>
+
 	  	<?php include ("headeer/header.php")?>
 
         <script>COMMON_TEMPLATE.header();</script>
