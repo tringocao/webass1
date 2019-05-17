@@ -214,8 +214,8 @@
 
       data: { 
         type: "get",
-        content: "",
-        username: "",
+        content: "content",
+        username: "username",
         postId: postId
       },
         
@@ -234,6 +234,11 @@
       var content = $("#content").val();
       $("#content").val("");
       var username = "<?php echo $username?>";
+      // console.log(username);
+      if (username === "" || username.length <= 0) {
+        window.alert("Bạn cần đăng nhập để thực hiện chức năng này");
+        return;
+      }
       var data = { 
         postId: postId,
         content : content,
@@ -258,7 +263,7 @@
     });
 
     function updateContent(jsonData) {
-      console.log(jsonData);
+      // console.log(jsonData);
       var comments = jQuery.parseJSON(jsonData);
       var str = "<br>";
       for (i = 0; i < comments.length; i++) {

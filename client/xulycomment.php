@@ -2,7 +2,7 @@
 	session_start();
 	include('connect.php');
   	$postId = $_POST['postId'];
-  	$username = $_SESSION['username'];
+  	$username = $_POST['username'];
   	$content = $_POST['content'];
   	$type = $_POST['type'];
   	if (empty($username)) {
